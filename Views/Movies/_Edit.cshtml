@@ -1,0 +1,124 @@
+﻿@model Movies.ViewModels.MoviesViewModel
+@using  Movies.Enums
+
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+
+    </div>
+
+<form action="@Url.Action(Model.ActionTypes.ToString())" method="post" id="form-edit">
+    <div class="modal-body">
+
+        @Html.HiddenFor(m => m.Selected.Id)
+        @Html.HiddenFor(m => m.Selected.DateCreated)
+        @Html.HiddenFor(m => m.Selected.DateModified)
+        <div class="row">
+            <div class="col-md-10">
+                @Html.LabelFor(m => m.Selected.Title, new { style = "max-width: unset;" })
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text" style="width:3em;"><i class="fa fa-heart"></i></div>
+                    </div>
+                    @Html.TextBoxFor(m => m.Selected.Title, new { @class = "form-control", style = "max-width: unset;" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Selected.Title, null, new { @class = "text-warning" })
+            </div>
+            <div class="col-md-10">
+                @Html.LabelFor(m => m.Selected.Director, new { style = "max-width: unset;" })
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text" style="width:3em;"><i class="fa fa-heart"></i></div>
+                    </div>
+                    @Html.TextBoxFor(m => m.Selected.Director, "Director", new { @class = "form-control", style = "max-width: unset;" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Selected.Director, null, new { @class = "text-warning" })
+            </div>
+            <div class="col-md-10">
+                @Html.LabelFor(m => m.Selected.GenderId, new { style = "max-width: unset;" })
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text" style="width:3em;"><i class="fa fa-heart"></i></div>
+                    </div>
+                    @Html.DropDownListFor(m => m.Selected.GenderId, new SelectList(Model.Genders, "Id", "Name", Model.Selected.GenderId), "Select an option.", new { @class = "form-control", style = "max-width:unset;" })
+
+                </div>
+                @Html.ValidationMessageFor(m => m.Selected.GenderId, null, new { @class = "text-warning" })
+            </div>
+            <div class="col-md-10">
+                @Html.LabelFor(m => m.Selected.Duration, new { style = "max-width: unset;" })
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text" style="width:3em;"><i class="fa fa-heart"></i></div>
+                    </div>
+                    @Html.TextBoxFor(m => m.Selected.Duration, new { @class = "form-control", style = "max-width: unset;" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Selected.Duration, null, new { @class = "text-warning" })
+            </div>
+            <div class="col-md-10">
+                @Html.LabelFor(m => m.Selected.Clasification, new { style = "max-width: unset;" })
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text" style="width:3em;"><i class="fa fa-heart"></i></div>
+                    </div>
+                    @Html.TextBoxFor(m => m.Selected.Clasification, "Clasification", new { @class = "form-control", style = "max-width: unset;" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Selected.Clasification, null, new { @class = "text-warning" })
+            </div>
+            <div class="col-md-10">
+                @Html.LabelFor(m => m.Selected.Rating, new { style = "max-width: unset;" })
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text" style="width:3em;"><i class="fa fa-heart"></i></div>
+                    </div>
+                    @Html.TextBoxFor(m => m.Selected.Rating, "Rating", new { @class = "form-control", style = "max-width: unset;" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Selected.Rating, null, new { @class = "text-warning" })
+            </div>
+            <div class="col-md-10">
+                @Html.LabelFor(m => m.Selected.Score, new { style = "max-width: unset;" })
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text" style="width:3em;"><i class="fa fa-heart"></i></div>
+                    </div>
+                    @Html.TextBoxFor(m => m.Selected.Score, new { @class = "form-control", style = "max-width: unset;" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Selected.Score, null, new { @class = "text-warning" })
+            </div>
+            <div class="col-md-10">
+                @Html.LabelFor(m => m.Selected.OriginId, new { style = "max-width: unset;" })
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text" style="width:3em;"><i class="fa fa-heart"></i></div>
+                    </div>
+                    @Html.DropDownListFor(m => m.Selected.OriginId, new SelectList(Model.Origins, "Id", "Name", Model.Selected.OriginId), "Select an option.", new { @class = "form-control", style = "max-width:unset;" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Selected.OriginId, null, new { @class = "text-warning" })
+            </div>
+            <div class="col-md-10">
+                @Html.LabelFor(m => m.Selected.Sinopsis, new { style = "max-width: unset;" })
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text" style="width:3em;"><i class="fa fa-heart"></i></div>
+                    </div>
+                    @Html.TextBoxFor(m => m.Selected.Sinopsis, "Sinopsis", new { @class = "form-control", style = "max-width: unset;" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Selected.Sinopsis, null, new { @class = "text-warning" })
+            </div>
+        </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" onclick="toggleModificationModal()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            @{
+                if (Model.ActionTypes == ActionTypes.Edit)
+                {
+                    <input type="button" id="saveChanges" onclick="saveFormData(false, 'Movies', '')" value="Save" class="btn btn-primary" style="max-width:unset;" />
+                }
+                else if (Model.ActionTypes == ActionTypes.Add)
+                {
+                    <input type="button" id="saveChanges" onclick="saveFormData(true, 'Movies', '')" value="Save" class="btn btn-primary" style="max-width:unset;" />
+                }
+            }
+
+        </div>
+</form>
+

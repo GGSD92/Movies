@@ -1,0 +1,11 @@
+﻿@model Movies.ViewModels.OriginsViewModel;
+
+@{
+    ViewData["Title"] = "Origins";
+}
+
+
+<div id="tableData">
+    @{await Html.RenderPartialAsync(string.Format("_Table", Model)); }
+</div>
+

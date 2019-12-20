@@ -1,0 +1,47 @@
+﻿@model Movies.ViewModels.OriginsViewModel
+@using  Movies.Enums
+@{
+    Layout = null;
+}
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Origins</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form action="@Url.Action(Model.ActionTypes.ToString())" method="post" id="form-edit">
+    <div class="modal-body">
+
+        @Html.HiddenFor(m => m.Selected.Id)
+        @Html.HiddenFor(m => m.Selected.DateCreated)
+        @Html.HiddenFor(m => m.Selected.DateModified)
+
+        <div class="col-md-10">
+            @Html.LabelFor(m => m.Selected.Name, new { style = "max-width: unset;" })
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" style="width:3em;"><i class="fa fa-heart"></i></div>
+                </div>
+                @Html.TextBoxFor(m => m.Selected.Name, new { @class = "form-control", style = "max-width: unset;" })
+            </div>
+            @Html.ValidationMessageFor(m => m.Selected.Name, null, new { @class = "text-warning" })
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" onclick="toggleModificationModal()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        @*<input class="btn btn-success" type="submit" value="Save" action="@Url.Action("SaveAdd")" method="post">/>*@
+        @{
+            if (Model.ActionTypes == ActionTypes.Edit)
+            {
+                <input type="button" id="saveChanges" onclick="saveFormData(false, 'Origins', '')" value="Save" class="btn btn-primary" style="max-width:unset;" />
+            }
+            else if (Model.ActionTypes == ActionTypes.Add)
+            {
+                <input type="button" id="saveChanges" onclick="saveFormData(true, 'Origins', '')" value="Save" class="btn btn-primary" style="max-width:unset;" />
+            }
+        }
+
+    </div>
+</form>
+

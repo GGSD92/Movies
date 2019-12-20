@@ -1,0 +1,21 @@
+﻿@model Movies.ViewModels.MoviesViewModel
+
+<h1>Lista de Películas</h1>
+<hr />
+
+
+<div class="row">
+    @foreach (var pelicula in Model.Peliculas)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@pelicula.Title</h5>
+                <p class="card-text">@pelicula.Sinopsis</p>
+            </div>
+        </div>
+    }
+
+</div>
+
+

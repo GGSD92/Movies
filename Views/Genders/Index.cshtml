@@ -1,0 +1,17 @@
+﻿@model Movies.ViewModels.GendersViewModel
+
+@{
+    ViewData["Title"] = "Gender";
+}
+
+@{
+    //if (Model.ActionTypes == Movies.Enums.ActionTypes.NotAllowed)
+    //{
+    //    await Html.RenderPartialAsync("_NotAllowed");
+    //}
+    //if (Model.ActionTypes == Movies.Enums.ActionTypes.Catalog)
+    //{
+
+    //}
+    await Html.RenderPartialAsync(string.Format("_Table", Model));
+}

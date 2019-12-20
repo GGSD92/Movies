@@ -1,0 +1,9 @@
+﻿@model Movies.ViewModels.MoviesViewModel;
+
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<div id="tableData">
+    @{await Html.RenderPartialAsync(string.Format("_Table", Model)); }
+</div>
